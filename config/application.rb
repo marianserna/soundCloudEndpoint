@@ -15,7 +15,7 @@ require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-require 'dotenv/load'
+require 'dotenv/load' unless rails.env.production?
 
 module SoundCloudEndpoint
   class Application < Rails::Application
