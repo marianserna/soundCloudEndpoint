@@ -10,6 +10,14 @@ class ChartsController < ApplicationController
     })
 
     # response
-    render json: response.parse(:json)
+    render json: format_tracks(response.parse(:json))
+  end
+
+  private
+
+  def format_tracks(json)
+    json['collection'].map do |row|
+      row['track']
+    end
   end
 end
